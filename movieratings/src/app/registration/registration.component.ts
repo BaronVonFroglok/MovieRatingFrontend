@@ -20,11 +20,11 @@ constructor(private regService:RegisterUserService) { }
 
 private User: User;
 regForm = new FormGroup({
-  email: new FormControl('', [Validators.required, Validators.pattern(/"^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"*/)]),
+  username: new FormControl('', [Validators.required, Validators.pattern(/"[a-zA-Z0-9]"*/)]),
   password: new FormControl('', [Validators.required,  Validators.pattern(/"[a-zA-Z0-9]"*/)]),
 });
 
-emailError:String='';
+usernameError:String='';
 passwordError:String='';
 
 
@@ -32,17 +32,15 @@ passwordError:String='';
 model: User[]; 
 packageAndShip(){
 
- console.log (this.regForm.controls['email'].value)
+ console.log (this.regForm.controls['username'].value)
  console.log (this.regForm.controls['password'].value)
- console.log (this.regForm.controls['firstname'].value)
- console.log (this.regForm.controls['lastname'].value)
  console.log('shipping?');
 
 let validSubmission=true;
-if(this.regForm.controls['email'].value=='') {
+if(this.regForm.controls['username'].value=='') {
 validSubmission=false;
-this.emailError='That email is invalid, must be an valid email address';
-} else {this.emailError='';}
+this.usernameError='That username is invalid, must be an valid username';
+} else {this.usernameError='';}
 
 if(this.regForm.controls['password'].value==''){
 validSubmission=false;
@@ -50,9 +48,9 @@ this.passwordError='That password is invalid, please use a password with letters
 } else {this.passwordError='';}
 
 for (let i: number = 0; i < this.model.length; i++) {
-  if (this.regForm.controls['email'].value == this.model[i]["email"]){
+  if (this.regForm.controls['username'].value == this.model[i]["username"]){
     validSubmission=false;
-    this.emailError='That email is already in use, please choose another.';    
+    this.usernameError='That username is already in use, please choose another.';    
     break;    
   }
 }
@@ -63,7 +61,7 @@ if(validSubmission)
 {
   console.log(this.User);
   this.User["userId"]=0;
-  this.User["email"]=this.regForm.controls['email'].value;
+  this.User["username"]=this.regForm.controls['username'].value;
   this.User["password"]=this.regForm.controls['password'].value;
  
   
@@ -91,7 +89,7 @@ if(validSubmission)
     console.log(localStorage.getItem('token'));
    this.User={
       userId:0,
-      email:'',
+      username:'',
       password:'',
    
     }
