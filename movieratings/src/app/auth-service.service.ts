@@ -12,7 +12,7 @@ export class AuthService {
   constructor(private myHttpClient: HttpClient) { }
 
   loginRequest(User: User): Observable<User> {
-    return this.myHttpClient.post<User>('http://localhost:8200/session/login', User,
+    return this.myHttpClient.post<User>('http://localhost:4200/session/login', User,
     {withCredentials:true}
     );
 
@@ -23,7 +23,7 @@ export class AuthService {
   logoutRequest(): Observable<string>{
 
 
-    return this.myHttpClient.get<string>('http://localhost:8200/session/logout',
+    return this.myHttpClient.get<string>('http://localhost:4200/session/logout',
     {withCredentials:true}
     );
     
@@ -33,7 +33,7 @@ export class AuthService {
 
   infoRequest(): Observable<User>{
 
-    return this.myHttpClient.get<User>('http://localhost:8200/session/loggers',
+    return this.myHttpClient.get<User>('http://localhost:4200/session/loggers',
     {withCredentials:true}
     );
 

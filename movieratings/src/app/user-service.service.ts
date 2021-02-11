@@ -9,9 +9,9 @@ export class UserServiceService {
   private id: number = 0;
 
   /*PLEASE NOTE HARDCODED USER ID !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-  private getPortfoliosUrl: string = "http://localhost:8200/service/getPortfolios/";
+  private getPortfoliosUrl: string = "http://localhost:4200/service/getPortfolios/";
   //bug fix adding base url 1/1 
-  private baseUrl: string ="http://localhost:8200/service";
+  private baseUrl: string ="http://localhost:4200/service";
 
   constructor(private http: HttpClient) {}
   setId(id: number){

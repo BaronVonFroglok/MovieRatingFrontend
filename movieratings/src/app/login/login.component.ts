@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';   
 import { AuthService } from '../auth-service.service'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';  
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule} from '@angular/forms';  
 import {User} from '../user.models';
 import { RegisterUserService } from '../reg-user-service.service';
 
@@ -32,7 +32,7 @@ returnUrl: string;
 
   ngOnInit() {  
 
-    this.authService.logout();
+   // this.authService.logout();
     //console.log(localStorage.getItem('token'));
     this.loginForm = this.formBuilder.group({  
     username: ['', Validators.required],  
@@ -50,7 +50,7 @@ returnUrl: string;
   );
   
   //this.returnUrl='./user-home';
-  this.authService.logoutRequest();
+  //this.authService.logoutRequest();
   //console.log(localStorage.getItem('token'));
   }
 
