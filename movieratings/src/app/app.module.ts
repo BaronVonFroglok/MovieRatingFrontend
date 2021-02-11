@@ -8,13 +8,15 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ReviewComponent } from './review/review.component';
 import { HttpService } from './http.service';
 import { FormsModule } from '@angular/forms';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LandingPageComponent,
-    ReviewComponent
+    ReviewComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
