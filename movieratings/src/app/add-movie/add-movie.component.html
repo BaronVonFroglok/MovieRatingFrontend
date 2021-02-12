@@ -1,0 +1,49 @@
+<div>
+    <ng-container>
+        <form>
+            <label for="searchMovie">Name of the movie: &nbsp;</label>
+            <input id="searchMovie" name="searchMovie" type="text" [(ngModel)]="searchQuery"/>
+            <label for="searchBtn"></label>
+            <button type="button" name="searchBtn" id="searchBtn" class="btn-dark" (click)="searchMovie()">Search Movie</button>
+            <label for="returnBtn"></label>
+            <button type="button" name="returnBtn" id="returnBtn" class="btn-dark" routerLink="/landing-page">Return to Landing Page</button>
+        </form>
+    </ng-container>
+</div>
+<div>
+    <ng-container *ngIf="querySent && searchResults.length == 0">
+        There are no movies by that name! Please check that you did not misspell your query.
+    </ng-container>
+    <ng-container *ngIf="querySent && searchResults.length > 0">
+        <table id="movieTable" class="table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr id="movieTableHead" class="thead-dark">
+                    <td>Title</td>
+                    <td>Year</td>
+                    <td>IMDB Id</td>
+                    <td>Poster</td>
+                    <td>Review</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="movie" *ngFor="let movie of searchResults; let i = index">
+                    <td><img src={{movie.poster}}></td>
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.year}}</td>
+                    <td>{{movie.imdb_id}}</td>
+                    <td>
+                        <select class="custom-select" name="rating" [(ngModel)]=selectedMovie[i]>
+                            <option selected disabled value="0">Select a Rating:</option>
+                            <option value="1">Horrible</option>
+                            <option value="2">Bad</option>
+                            <option value="3">Neutral</option>
+                            <option value="4">Good</option>
+                            <option value="5">Great</option>
+                        </select>
+                        <button class="reviewBtn btn-dark" (click)="rateMovie(movie)">Rate Movie</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</div>

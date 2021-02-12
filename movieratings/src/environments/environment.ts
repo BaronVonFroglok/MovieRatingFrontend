@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  imdbApiUrl: 'movie-database-imdb-alternative.p.rapidapi.com',
+  imdbApiKey: '830b49e24fmshc13bd5d1be78b1ep16da11jsn62cfc92fcc7c'
 };
 
 /*

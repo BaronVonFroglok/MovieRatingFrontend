@@ -8,20 +8,25 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ReviewComponent } from './review/review.component';
 import { HttpService } from './http.service';
 import { FormsModule } from '@angular/forms';
+import { AddMovieComponent } from './add-movie/add-movie.component';
+import { ImdbApiService } from './imdb-api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LandingPageComponent,
-    ReviewComponent
+    ReviewComponent,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, ImdbApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
